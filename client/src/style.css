@@ -1,0 +1,32 @@
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+
+}
+.PagesClass{
+    width: max-content;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.PagesClass h1{
+    align-self: center;
+}
+.index--btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
