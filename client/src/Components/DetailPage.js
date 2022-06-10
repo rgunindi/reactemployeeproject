@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { ScoopaBase } from 'scoopabase'
 
 export default function DetailPage(props) {
     const [employeData, setEmployeData] = useState([]);
     const [newDate, setNewDate] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(props.isAdmin);
     useEffect(() => {
         setEmployeData(() => [...props.data]);
         timeFormatter(props.data);
-        localStorage.setItem('token',new Date().getTime());
+        localStorage.setItem('token', new Date().getTime());
+        //IndexDbSet
+        indexDbSetting();
     }, [props.data]);
 
     function timeFormatter(e) {
-        e.forEach((element, index) => {
+        e.forEach((element) => {
             var d = new Date(element.hire_date);
             const day = d.getDate() < 9 ? 0 + d.getDate().toString() : d.getDate();
             const month = d.getMonth() < 9 ? 0 + (d.getMonth() + 1).toString() : d.getMonth() + 1;
@@ -19,6 +23,19 @@ export default function DetailPage(props) {
             setNewDate((prev) => [...prev, date]);
         });
 
+    }
+    function indexDbSetting() {
+        let db = new ScoopaBase('db');
+        employeData && employeData.forEach((element,index) => {
+            db.collection('employees').add({
+                id: element.employee_id,
+                firstname: element.first_name,
+                lastname: element.last_name,
+                departmentId: element.department_id,
+                hireDate: isAdmin ? element.hire_date : null,
+                salary:isAdmin ? element.salary : null,
+            }, index)
+        });
     }
 
     if (props.isAdmin) {

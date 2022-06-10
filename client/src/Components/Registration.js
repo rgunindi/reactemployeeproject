@@ -24,6 +24,7 @@ function Registration() {
   }, [])
   function checkLogin() {
     localStorage.clear();
+    indexedDB.deleteDatabase('db');
   }
   const addEmployee = () => {
     setLoggedIn((prev) => !prev);

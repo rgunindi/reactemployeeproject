@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AccountPage from './AccountPage';
-import axios from 'axios';
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -92,10 +92,6 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="d-grid">
-          {/* <button type="submit" className="btn btn-primary"
-          onClick={(e)=>this.handleSubmit(e)}>
-            Submit
-          </button> */}
           <a href="/" className="btn btn-primary"
                 onClick={(e) => this.handleSubmit(e)}>Sign In</a>
         </div>

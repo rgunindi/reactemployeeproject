@@ -57,6 +57,14 @@ Ex:
 
   ![Ls2](/ReadmeFiles/Ls2.png)
 
+---
+All employees can be viewed in indexDb when logged in.
+  
+  Ex1 rootUser:
+  ![indexDb](/ReadmeFiles/indexDb1.png)
+
+  Ex2 standarUser:
+  ![indexDb](/ReadmeFiles/indexDb2.png)
 
 --------------------------------
 Details on database relations
