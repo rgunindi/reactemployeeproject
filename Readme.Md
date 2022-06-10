@@ -17,6 +17,9 @@
    - express : Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
    - mysql2 : MySQL client for Node.js with focus on performance. Supports prepared statements, non-utf8 encodings, binary log protocol, compression, ssl.
    - nodemon : It is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected. 
+   - scoopabase : ScoopaBase gives you an offline database with simplicity & power of Firestore, And It stores data in user's browser - IndexDB.
+   - rxjs and rxjs-compat: Reactive Extensions Library for JavaScript.
+
 
 ### An example image of the database relation related
 ![RDMSLImage](/ReadmeFiles/RDMSLimage1.png)
