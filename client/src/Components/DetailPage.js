@@ -117,21 +117,3 @@ export default function DetailPage(props) {
     }
 
 }
-        // const dbName = "workers";
-        // var request = indexedDB.open(dbName, 2);
-        // request.onupgradeneeded = event => {
-        //     var db = event.target.result;
-
-        //     var objectStore = db.createObjectStore("employees", { keyPath: "empyoneId" });
-        //     employeData.forEach(employee => {
-        //     objectStore.createIndex(employee, employee, { unique: false });
-        //     })
-
-        //     objectStore.transaction.oncomplete = event => {
-        //         // Store values in the newly created objectStore.
-        //         var employeeObjectStore = db.transaction("employees", "readwrite").objectStore("employees");
-        //         employeData.forEach(function (emp) {
-        //             employeeObjectStore.add(emp.first_name);
-        //         });
-        //     };
-        // };
