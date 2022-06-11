@@ -40,13 +40,13 @@ export default class AccountPage extends Component {
   render() {
     var v;
     if (this.state.isAdmin) {
-      v = this.state.allEmployees.map(worker => { return worker }).filter(worker => worker != null);
+      v = this.state.allEmployees&& this.state.allEmployees.map(worker => { return worker }).filter(worker => worker != null);
     } else {
-      v = this.state.allEmployees.map(worker => { return (worker.department_id == this.state.department) ? worker : null }).filter(worker => worker != null);
+      v = this.state.allEmployees&&this.state.allEmployees.map(worker => { return (worker.department_id == this.state.department) ? worker : null }).filter(worker => worker != null);
     }
     return (
       <>
-        {v.length > 0 ? <DetailPage data={v} isAdmin={this.state.isAdmin} /> : <div>No Data</div>}
+        {v&&v.length > 0 ? <DetailPage data={v} isAdmin={this.state.isAdmin} /> : <div>No Data</div>}
       </>
     )
   }

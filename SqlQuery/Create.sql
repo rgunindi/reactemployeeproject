@@ -1,4 +1,4 @@
--- CREATE DATABASE Workers;
+CREATE DATABASE Workers;
 USE Workers;
 CREATE TABLE departments (
 	department_id INT AUTO_INCREMENT PRIMARY KEY,
