@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React,{useEffect} from 'react';
 import axios from 'axios';
 
 export default function AddEmployee() {
@@ -11,24 +11,47 @@ export default function AddEmployee() {
     const [hire_date, setHire_date] = React.useState("");
     const [to_date, setTo_date] = React.useState("");
     const [employeeData, setEmployeeData] = React.useState([]);
-    function handleSubmit(event) {
-        event.preventDefault();
+    function handleClick(event) {
+        if (employee_id && first_name && last_name && salary && title && department_id && hire_date) {
+            event.preventDefault();
             var d = new Date();
             const day = d.getDate() < 9 ? 0 + d.getDate().toString() : d.getDate();
             const month = d.getMonth() < 9 ? 0 + (d.getMonth() + 1).toString() : d.getMonth() + 1;
             const year = d.getFullYear();
             const date = `${year}-${month}-${day}`;
-        setTo_date(date);
-        setEmployeeData(() => [{ employee_id, first_name, last_name, salary, title, department_id, hire_date, to_date }]);
-       addEmp();
-    }
-    function addEmp(){
-        if (employeeData.length > 0) {
-            axios.post("http://localhost:4000/addEmployee", {
-                data: employeeData,
-            });
-        setEmployeeData(() => []);
+            setTo_date(date);
+            setEmployeeData(() => [{ employee_id, first_name, last_name, salary, title, department_id, hire_date, to_date }]);
+            addEmp();
+            freeState();
         }
+        else { alert("Please fill all the fields"); }
+    }
+    useEffect(() => { addEmp();}, [employeeData]);
+    function freeState() {
+        setTimeout(() => { 
+            setEmployee_id(""); setFirstName(""); setLastName(""); setSalary(""); setTitle(""); setDepartment_id(""); setHire_date(""); setTo_date("");
+        }, 1500);
+    }
+    function addEmp() {
+        setTimeout(() => { 
+            console.log(employeeData.length);
+        if (employeeData.length > 0) {
+            const options = {
+                url: 'http://localhost:4000/addEmployee',
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                  },
+                data: employeeData
+              };
+              console.log(employeeData.length)
+              axios(options)
+                .then(response => {
+                  console.log(response.status);
+                });
+            setEmployeeData(() => []);
+        }}, 1000);
     }
     return (
         <>
@@ -75,7 +98,7 @@ export default function AddEmployee() {
                         </tr>
                     </tbody>
                 </table>
-                <button className="btn btn-primary" onClick={(e) => { handleSubmit(e) }}>Add Employee</button>
+                <input type="submit" className="btn btn-primary" onClick={(e) => { handleClick(e) }} value="Add Employee" />
             </div>
         </>
     )
