@@ -1,5 +1,5 @@
-CREATE DATABASE Workers;
-USE Workers;
+CREATE DATABASE workers;
+USE workers;
 CREATE TABLE departments (
 	department_id INT AUTO_INCREMENT PRIMARY KEY,
     dept_no char(4) unique not null,
@@ -12,7 +12,6 @@ CREATE TABLE employees (
 	first_name VARCHAR (20) DEFAULT NULL,
 	last_name VARCHAR (25) NOT NULL,
 	hire_date DATE NOT NULL,
-	salary DECIMAL (8, 2) NOT NULL,
 	department_id INT (11) DEFAULT NULL,
 	FOREIGN KEY (department_id) REFERENCES departments (department_id) ON DELETE CASCADE ON UPDATE CASCADE
 );

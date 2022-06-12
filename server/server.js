@@ -2,12 +2,24 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const connection = require('./db');
-const { json } = require('body-parser');
+const axios = require('axios');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.get('/workareas', (req, res) => {
     const GetQuery = `SELECT * FROM employees`;
+    connection.query(GetQuery, (err, results) => {
+        if (err) {
+            return res.send(err);
+        }
+        return res.json({
+            data: results
+        });
+    });
+})
+
+app.get('/firstDB', (req, res) => {
+    const GetQuery = `SELECT * FROM departments`;
     connection.query(GetQuery, (err, results) => {
         if (err) {
             return res.send(err);
@@ -32,13 +44,13 @@ app.get('/admins', (req, res) => {
                 data: results
             });
         });
-    }else{
+    } else {
         res.send('You are not admin :)');
     }
 })
-
+var FIRSTDB = { data: null };
 app.post('/addEmployee', (req, res) => {
-    const values = JSON.parse(JSON.stringify(req.body.data));
+    const values = req.body;
     let first_name, last_name, employee_id, department_id, hire_date, salary, to_date, title;
     values.forEach((k, el) => {
         first_name = k.first_name;
@@ -50,8 +62,10 @@ app.post('/addEmployee', (req, res) => {
         to_date = k.to_date;
         title = k.title;
     });
-    /*-------------SQL QUERIES----------------*/ 
+
+
     //#region SQL QUERIES
+    /*-------------SQL QUERIES----------------*/
     const InsertQueryEmp = `INSERT INTO employees (first_name, last_name, employee_id, department_id, hire_date) VALUES ('${first_name}', '${last_name}', '${employee_id}', '${department_id}', '${hire_date}')`;
     const InsertQuerySal = `INSERT INTO salaries (employee_id, salary, from_date,to_date) VALUES ('${employee_id}', '${salary}', '${hire_date}', '${to_date}')`;
     const InsertQuerydept_emp = `INSERT INTO dept_emp (employee_id,department_id, from_date,to_date) VALUES ('${employee_id}','${department_id}', '${hire_date}', '${to_date}')`;
@@ -59,28 +73,63 @@ app.post('/addEmployee', (req, res) => {
     const InsertQueryTitle = `INSERT INTO titles (employee_id,title) VALUES ('${employee_id}','${title}')`;
     /*-------------SQL QUERIES----------------*/
 
-    const query = [InsertQueryEmp, InsertQuerySal, InsertQuerydept_emp, InsertQuerydept_manager, InsertQueryTitle];
+    const queries = [InsertQueryEmp, InsertQuerySal, InsertQuerydept_emp, InsertQuerydept_manager, InsertQueryTitle]
     //#endregion
-    query.forEach(async (el, i) => {
+    getInfoFirstDb();
+    setTimeout(() => { }, 2000);
+    if (FIRSTDB.data === null || FIRSTDB.data === undefined || FIRSTDB.data === 0) {
+        console.log("First Department Db Table Must have created");
+        let errr, result = null;
+        const GetQuery = `INSERT INTO departments (department_id,dept_no, dept_name) VALUES ('1','A', 'IT'),('2','B', 'Front End'),('3','C', 'Back End');`;
+        setTimeout(() => {
+            connection.query(GetQuery, (err, results) => {
+                if (err) {
+                    errr = err;
+                    return res.send(err);
+                }
+                result = results;
+            })
+        }, 2000);
+            if (errr === null || result !== null || result !== undefined || result !== 0) {
+                executeQuery(queries, res);
+            }
+        } else {
+            executeQuery(queries, res);
+        }
+
+
+
+});
+function getInfoFirstDb() {
+    axios.get('http://localhost:4000/firstDB')
+        .then((response) => response.data).then(response => {
+            info(JSON.parse(JSON.stringify(response)).data.length);
+        })
+        .catch(function (error) { console.log(error); });
+}
+function info(x) {
+    FIRSTDB.data = x;
+}
+function executeQuery(queries, res) {
+    setTimeout(() => { console.log(`execution!: Add data !`) }, 1000);
+    queries.forEach(async (el, i) => {
+        setTimeout(() => { console.log(`execution!: '${i+1}. query' !`);
         connection.query(el, (err, results) => {
             if (err) {
                 return res.send(err);
             }
-            if (i === query.length - 1) {
+            if (i === queries.length - 1) {
                 return res.json({
                     data: results
                 });
             }
-        });
-
-    }
-    )
-});
-
+        }); }, 3000+(i+1)*500);
+    })
+}
 app.get('/token', (req, res) => {
-        return res.json({
-            data: 'hdh82dhj2j9jd'
-        });
+    return res.json({
+        data: 'hdh82dhj2j9jd'
+    });
 })
 app.get('/deleteEmployee', (req, res) => {
     //If we want to delete employee? we can do it by employee_id
@@ -88,3 +137,4 @@ app.get('/deleteEmployee', (req, res) => {
 app.listen(4000, () => {
     console.log('Server started at port 4000');
 })
+
