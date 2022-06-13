@@ -46,7 +46,7 @@ export default class AccountPage extends Component {
     }
     return (
       <>
-        {v&&v.length > 0 ? <DetailPage data={v} isAdmin={this.state.isAdmin} /> : <div>No Data</div>}
+        {v&&v.length > 0 ? <DetailPage data={v} isAdmin={this.state.isAdmin}/> : <div>No Data</div>}
       </>
     )
   }
