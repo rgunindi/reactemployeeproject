@@ -76,29 +76,13 @@ app.post('/addEmployee', (req, res) => {
     const queries = [InsertQueryEmp, InsertQuerySal, InsertQuerydept_emp, InsertQuerydept_manager, InsertQueryTitle]
     //#endregion
     getInfoFirstDb();
-    setTimeout(() => { }, 2000);
-    if (FIRSTDB.data === null || FIRSTDB.data === undefined || FIRSTDB.data === 0) {
-        console.log("First Department Db Table Must have created");
-        let errr, result = null;
-        const GetQuery = `INSERT INTO departments (department_id,dept_no, dept_name) VALUES ('1','A', 'IT'),('2','B', 'Front End'),('3','C', 'Back End');`;
-        setTimeout(() => {
-            connection.query(GetQuery, (err, results) => {
-                if (err) {
-                    errr = err;
-                    return res.send(err);
-                }
-                result = results;
-            })
-        }, 2000);
-            if (errr === null || result !== null || result !== undefined || result !== 0) {
-                executeQuery(queries, res);
-            }
+    setTimeout(() => {
+        if (FIRSTDB.data === null || FIRSTDB.data === undefined || FIRSTDB.data === 0) {
+            firstDbCreate(queries,res);
         } else {
             executeQuery(queries, res);
         }
-
-
-
+    }, 1000);
 });
 function getInfoFirstDb() {
     axios.get('http://localhost:4000/firstDB')
@@ -110,22 +94,44 @@ function getInfoFirstDb() {
 function info(x) {
     FIRSTDB.data = x;
 }
+function firstDbCreate(queries,res) {
+    let errr, result = null;
+    console.log("First Department Db Table Must have created");
+    const GetQuery = `INSERT INTO departments (department_id,dept_no, dept_name) VALUES ('1','A', 'IT'),('2','B', 'Front End'),('3','C', 'Back End');`;
+    connection.query(GetQuery, (err, results) => {
+        if (err) {
+            errr = err;
+            return res.send(err);
+        }
+        result = results;
+    })
+    if (errr === null || result !== null || result !== undefined || result !== 0) {
+        executeQuery(queries, res);
+    }
+}
 function executeQuery(queries, res) {
-    setTimeout(() => { console.log(`execution!: Add data !`) }, 1000);
+    let count = 1;
+    console.log(`execution!: Add data !`)
     queries.forEach(async (el, i) => {
-        setTimeout(() => { console.log(`execution!: '${i+1}. query' !`);
-        connection.query(el, (err, results) => {
-            if (err) {
-                return res.send(err);
-            }
-            if (i === queries.length - 1) {
-                return res.json({
-                    data: results
-                });
-            }
-        }); }, 3000+(i+1)*500);
+        executeQuery = (query) => {
+            console.log(`execution!: '${i + 1}. query' !`);
+            setTimeout(() => {
+                connection.query(query, (err, results) => {
+                    if (err) {
+                        return res.send(err);
+                    }
+                    if (i === queries.length - 1) {
+                        return res.json({
+                            data: results
+                        });
+                    }
+                }); count++;
+            }, (count + 1) * 100);
+        }
+        executeQuery(el);
     })
 }
+
 app.get('/token', (req, res) => {
     return res.json({
         data: 'hdh82dhj2j9jd'

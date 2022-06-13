@@ -26,14 +26,14 @@ export default function DetailPage(props) {
     }
     function indexDbSetting() {
         let db = new ScoopaBase('db');
-        employeData && employeData.forEach((element,index) => {
+        employeData && employeData.forEach((element, index) => {
             db.collection('employees').add({
                 id: element.employee_id,
                 firstname: element.first_name,
                 lastname: element.last_name,
                 departmentId: element.department_id,
                 hireDate: isAdmin ? element.hire_date : null,
-                salary:isAdmin ? element.salary : null,
+                salary: isAdmin ? element.salary : null,
             }, index)
         });
     }
@@ -59,23 +59,23 @@ export default function DetailPage(props) {
             )
         })
         return (
-            <div className="auto-inner-table">
-                <table id="my_table_1" data-toggle="table" data-sort-stable="true">
-                    <thead>
-                        <tr>
-                            <th data-sortable="true">Employe Id</th>
-                            <th data-sortable="true">First Name</th>
-                            <th data-sortable="true">Last Name</th>
-                            <th data-sortable="true">Salary</th>
-                            <th data-sortable="true">Hire Date</th>
-                            <th data-sortable="true">Department</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tableEmployees}
-                    </tbody>
-                </table>
-            </div>
+                <div className="auto-inner-table">
+                    <table id="my_table_1" data-toggle="table" data-sort-stable="true">
+                        <thead>
+                            <tr>
+                                <th data-sortable="true">Employe Id</th>
+                                <th data-sortable="true">First Name</th>
+                                <th data-sortable="true">Last Name</th>
+                                <th data-sortable="true">Salary</th>
+                                <th data-sortable="true">Hire Date</th>
+                                <th data-sortable="true">Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tableEmployees}
+                        </tbody>
+                    </table>
+                </div>
         )
     } else {
 
