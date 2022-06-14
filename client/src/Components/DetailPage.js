@@ -94,8 +94,8 @@ export default function DetailPage(props) {
                     </select>
                     </td>
                     <td><input type="date" data-date-inline-picker="true"
-                        value={newDate[index]} /></td>
-                    <td><input type="checkbox" /></td>
+                        value={newDate[index]} readOnly/></td>
+                    <td><input type="checkbox" readOnly/></td>
                 </tr>
             )
         })
