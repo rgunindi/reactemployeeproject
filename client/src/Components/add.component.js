@@ -44,7 +44,7 @@ export default function AddEmployee() {
         },
       ]);
       addEmp();
-      //freeState();
+      freeState();
     } else {
       alert("Please fill all the fields");
     }
