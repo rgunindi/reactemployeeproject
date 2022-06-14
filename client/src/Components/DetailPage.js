@@ -37,56 +37,59 @@ export default function DetailPage(props) {
             }, index)
         });
     }
-
+   function inputChangedHandler (event) {
+        const updatedKeyword = event.target.value;
+        // May be call for search result
+        console.log(event)
+    }
     if (props.isAdmin) {
         const tableEmployees = employeData.map((employe, index) => {
             return (
-                <tr>
-                    <td><input type="text" value={employe.employee_id} /></td>
-                    <td><input type="text" value={employe.first_name} /></td>
-                    <td><input type="text" value={employe.last_name} /></td>
-                    <td><input type="text" value={employe.salary + "$"} /></td>
+                <tr key={index}>
+                    <td><input type="text" value={employe.employee_id} onChange={(event) => inputChangedHandler(event)} /></td>
+                    <td><input type="text" value={employe.first_name} readOnly /></td>
+                    <td><input type="text" value={employe.last_name} readOnly /></td>
+                    <td><input type="text" value={employe.salary + "$"} readOnly /></td>
                     <td><input type="date" data-date-inline-picker="true"
-                        value={newDate[index]} /></td>
+                        value={newDate[index]} readOnly /></td>
                     <td><select>
-                        <option value={employe.department_id} selected>{employe.department_id == 1 ? 'IT' :
+                        <option value={employe.department_id} readOnly>{employe.department_id == 1 ? 'IT' :
                             employe.department_id == 2 ? 'F-End' : 'B-End'}</option>
                     </select>
                     </td>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox" readOnly /></td>
 
                 </tr>
             )
         })
         return (
-                <div className="auto-inner-table">
-                    <table id="my_table_1" data-toggle="table" data-sort-stable="true">
-                        <thead>
-                            <tr>
-                                <th data-sortable="true">Employe Id</th>
-                                <th data-sortable="true">First Name</th>
-                                <th data-sortable="true">Last Name</th>
-                                <th data-sortable="true">Salary</th>
-                                <th data-sortable="true">Hire Date</th>
-                                <th data-sortable="true">Department</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableEmployees}
-                        </tbody>
-                    </table>
-                </div>
+            <div className="auto-inner-table">
+                <table id="my_table_1" data-toggle="table" data-sort-stable="true">
+                    <thead>
+                        <tr>
+                            <th data-sortable="true">Employe Id</th>
+                            <th data-sortable="true">First Name</th>
+                            <th data-sortable="true">Last Name</th>
+                            <th data-sortable="true">Salary</th>
+                            <th data-sortable="true">Hire Date</th>
+                            <th data-sortable="true">Department</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tableEmployees}
+                    </tbody>
+                </table>
+            </div>
         )
     } else {
 
         const tableEmployees = employeData.map((employe, index) => {
             return (
-
-                <tr>
-                    <td><input type="text" value={employe.first_name} /></td>
-                    <td><input type="text" value={employe.last_name} /></td>
+                <tr key={index}>
+                    <td><input type="text" value={employe.first_name} readOnly /></td>
+                    <td><input type="text" value={employe.last_name} readOnly /></td>
                     <td><select>
-                        <option value={employe.department_id} selected>{employe.department_id == 1 ? 'IT' :
+                        <option value={employe.department_id} readOnly>{employe.department_id == 1 ? 'IT' :
                             employe.department_id == 2 ? 'F-End' : 'B-End'}</option>
                     </select>
                     </td>
