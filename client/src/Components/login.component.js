@@ -44,7 +44,6 @@ export default class Login extends Component {
           login: true,
         });
         localStorage.setItem('login', true)
-       // window.location.reload();
         window.location.replace("http://localhost:3000/");
       }else {
         this.setState({

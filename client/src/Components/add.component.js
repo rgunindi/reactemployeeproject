@@ -34,7 +34,6 @@ export default function AddEmployee() {
     }
     function addEmp() {
         setTimeout(() => { 
-            console.log(employeeData.length);
         if (employeeData.length > 0) {
             const options = {
                 url: 'http://localhost:4000/addEmployee',
@@ -45,7 +44,6 @@ export default function AddEmployee() {
                   },
                 data: employeeData
               };
-              console.log(employeeData.length)
               axios(options)
                 .then(response => {
                   console.log(response.status);
