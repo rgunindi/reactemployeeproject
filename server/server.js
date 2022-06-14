@@ -145,8 +145,9 @@ function executeQuery(queries, res) {
   });
   async function execute (query, i) {
     console.log(`execution!: '${i + 1}. query' !`);
-    setTimeout(() => {
+     setTimeout(()=>{
       connection.query(query, (err, results) => {
+        ++count;
         if (err) {
           return res.send(err);
         }
@@ -155,10 +156,10 @@ function executeQuery(queries, res) {
             data: results,
           });
         }
-      });
-      count++;
-    }, (count + 1) * 100);
-  };
+      })
+      //count++
+  },count * 300);
+  }
 }
 
 app.get("/token", (req, res) => {
