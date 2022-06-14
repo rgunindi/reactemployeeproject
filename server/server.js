@@ -99,7 +99,7 @@ app.post("/addEmployee", (req, res) => {
     } else {
       executeQuery(queries, res);
     }
-  }, 80);
+  }, 100);
 });
 function getInfoFirstDb() {
   axios
@@ -141,9 +141,9 @@ function executeQuery(queries, res) {
   console.log(`execution!: Add data !`);
 
   queries.forEach(async (el, i) => {
-    execute(el, i);
+   await execute(el, i); 
   });
-  function execute (query, i) {
+  async function execute (query, i) {
     console.log(`execution!: '${i + 1}. query' !`);
     setTimeout(() => {
       connection.query(query, (err, results) => {
@@ -157,7 +157,7 @@ function executeQuery(queries, res) {
         }
       });
       count++;
-    }, (count + 1) * 200);
+    }, (count + 1) * 100);
   };
 }
 
@@ -166,6 +166,7 @@ app.get("/token", (req, res) => {
     data: "hdh82dhj2j9jd",
   });
 });
+
 app.get("/deleteEmployee", (req, res) => {
   //If we want to delete employee? we can do it by employee_id
 });
