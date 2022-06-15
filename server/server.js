@@ -6,32 +6,39 @@ const axios = require("axios");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+const token="hdh82dhj2j9jd";
+const tokenVerify="1851sd818s8d8a12!@3#4";
+let closeControl=false;
 app.get("/workareas", (req, res) => {
-  const GetQuery = `SELECT * FROM employees`;
-  connection.query(GetQuery, (err, results) => {
-    if (err) {
-      return res.send(err);
-    }
-    return res.json({
-      data: results,
+  if (req.headers.token==token+tokenVerify) {   
+    const GetQuery = `SELECT * FROM employees`;
+    connection.query(GetQuery, (err, results) => {
+      if (err) {
+        return res.send(err);
+      }
+      return res.json({
+        data: results,
+      });
     });
-  });
+  }else {res.send("Unauthorized Area")}
 });
 
 app.get("/firstDB", (req, res) => {
-  const GetQuery = `SELECT * FROM departments`;
-  connection.query(GetQuery, (err, results) => {
-    if (err) {
-      return res.send(err);
-    }
-    return res.json({
-      data: results,
+  if (closeControl) {    
+    const GetQuery = `SELECT * FROM departments`;
+    connection.query(GetQuery, (err, results) => {
+      if (err) {
+        return res.send(err);
+      }
+      return res.json({
+        data: results,
+      });
     });
-  });
+  }else {res.send("Unauthorized Area");}
+  closeControl=false;
 });
 app.get("/admins", (req, res) => {
-  if (true) {
-    //token will also be checked
+  if (req.headers.token==token+tokenVerify) {   
     const AdminQUERY = `
         SELECT employees.employee_id,first_name, last_name, salary,department_id,hire_date,to_date
         FROM employees, salaries
@@ -51,6 +58,7 @@ app.get("/admins", (req, res) => {
 });
 var FIRSTDB = { data: null };
 app.post("/addEmployee", (req, res) => {
+  if (req.headers.token==token+tokenVerify) {   
   const values = req.body;
   let first_name,
     last_name,
@@ -100,8 +108,10 @@ app.post("/addEmployee", (req, res) => {
       executeQuery(queries, res);
     }
   }, 100);
+}else {res.send("Unauthorized Area")}
 });
 function getInfoFirstDb() {
+  closeControl=true;
   axios
     .get("http://localhost:4000/firstDB")
     .then((response) => response.data)
@@ -146,8 +156,8 @@ function executeQuery(queries, res) {
   async function execute (query, i) {
     console.log(`execution!: '${i + 1}. query' !`);
      setTimeout(()=>{
+       ++count;
       connection.query(query, (err, results) => {
-        ++count;
         if (err) {
           return res.send(err);
         }
@@ -157,14 +167,13 @@ function executeQuery(queries, res) {
           });
         }
       })
-      //count++
   },count * 300);
   }
 }
 
 app.get("/token", (req, res) => {
   return res.json({
-    data: "hdh82dhj2j9jd",
+    data: token,
   });
 });
 

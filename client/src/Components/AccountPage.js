@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import DetailPage from "./DetailPage";
 import axios from "axios";
+import Authorized from "./Utils/Authorized";
+
 export default class AccountPage extends Component {
   constructor(props) {
     super(props);
@@ -16,41 +18,24 @@ export default class AccountPage extends Component {
       from_date: "",
       to_date: "",
       allEmployees: [],
-      isAdmin: props.isAdmin,
+      isAdmin: props.isAdmin
     };
     this.getWorker = this.getWorker.bind(this);
   }
   componentDidMount() {
     this.getWorker();
   }
-
   getWorker = () => {
     if (!this.state.isAdmin) {
       this.state.tc = localStorage.getItem("employeTc").replace(/\"/g, "");
       this.state.department = localStorage
         .getItem("department")
         .replace(/\"/g, "");
-      axios
-        .get("http://localhost:4000/workareas")
-        .then((response) => response.data)
-        .then((response) => {
-          this.setState({ allEmployees: response.data });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+        const veri=Authorized(axios,"workareas",'GET');
+        veri.then(result=>this.setState({ allEmployees: result }));
     } else {
-      axios
-        .get("http://localhost:4000/admins", {
-          token: localStorage.getItem("token"),
-        })
-        .then((response) => response.data)
-        .then((response) => {
-          this.setState({ allEmployees: response.data });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      const veri=Authorized(axios,"admins",'GET');
+        veri.then(result=>this.setState({ allEmployees: result }));
     }
   };
   render() {

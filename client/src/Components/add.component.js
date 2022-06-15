@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import Authorized from "./Utils/Authorized";
 
 export default function AddEmployee() {
   const [employee_id, setEmployee_id] = React.useState("");
@@ -67,19 +68,7 @@ export default function AddEmployee() {
   function addEmp() {
     setTimeout(() => {
       if (employeeData.length > 0) {
-        const options = {
-          url: "http://localhost:4000/addEmployee",
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json;charset=UTF-8",
-          },
-          data: employeeData,
-        };
-        axios(options).then((response) => {
-          console.log(response.status);
-        });
-        setEmployeeData(() => []);
+        Authorized(axios,'addEmployee','POST',employeeData);
       }
     }, 1000);
   }

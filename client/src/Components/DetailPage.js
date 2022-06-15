@@ -8,7 +8,6 @@ export default function DetailPage(props) {
   useEffect(() => {
     setEmployeData(() => [...props.data]);
     timeFormatter(props.data);
-    localStorage.setItem("token", new Date().getTime());
     //IndexDbSet
     indexDbSetting();
   }, [props.data]);
