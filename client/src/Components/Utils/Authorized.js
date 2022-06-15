@@ -26,6 +26,5 @@ export default async function Authorized(axios,_url,methodtype,_data){
   .catch(function (error) {
       console.log(error);
     });   
-    setTimeout(() => {return data;}, 1000);
     return data;
 }
