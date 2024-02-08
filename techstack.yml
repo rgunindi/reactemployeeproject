@@ -1,0 +1,332 @@
+repo_name: rgunindi/reactemployeeproject
+report_id: 36e1d39eb87a565896ef9db6094cf4ea
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-08T19:47:34+00:00'
+requested_by: deepsourcebot
+provider: github
+branch: master
+detected_tools_count: 24
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject
+  detection_source: Repo Metadata
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/SqlQuery/Create.sql
+  detection_source: SqlQuery/Create.sql
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:20:17.000000000 Z
+- name: Bootstrap
+  description: Simple and flexible HTML, CSS, and JS for popular UI components and
+    interactions
+  website_url: http://getbootstrap.com/
+  version: 5.1.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Front-End Frameworks
+  image_url: https://img.stackshare.io/service/1101/C9QJ7V3X.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: ExpressJS
+  description: Sinatra inspired web development framework for node.js -- insanely
+    fast, flexible, and simple
+  website_url: http://expressjs.com/
+  version: 4.18.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Microframeworks (Backend)
+  image_url: https://img.stackshare.io/service/1163/hashtag.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: React
+  description: A JavaScript library for building user interfaces
+  website_url: https://reactjs.org/
+  version: 18.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1020/OYIaJ1KK.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: React Router
+  description: A complete routing solution for React.js
+  website_url: https://github.com/rackt/react-router
+  version: 6.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: JavaScript Framework Components
+  image_url: https://img.stackshare.io/service/3350/8261421.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: RxJS
+  description: The Reactive Extensions for JavaScript
+  website_url: http://reactivex.io/rxjs/
+  version: 7.5.5
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Concurrency Frameworks
+  image_url: https://img.stackshare.io/service/1796/984368.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: MySQL
+  description: The world's most popular open source database
+  website_url: http://www.mysql.com
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1025/logo-mysql-170x170.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/server/package.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject
+  detection_source: Repo Metadata
+- name: nodemon
+  description: A simple monitor script for use during development of a node.js app
+  website_url: http://nodemon.io/
+  version: 2.0.16
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: node.js Application Monitoring
+  image_url: https://img.stackshare.io/service/5577/preview.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/server/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/server/package.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: axios
+  description: Promise based HTTP client for the browser and node.js
+  website_url: https://github.com/mzabriskie/axios
+  version: 0.27.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: "@testing-library/jest-dom"
+  description: Custom jest matchers to test the state of the DOM
+  package_url: https://www.npmjs.com/@testing-library/jest-dom
+  version: 5.16.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17424/default_1cdcda15ebb7caed879f8340bc212b44c4ec9dac.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: "@testing-library/react"
+  description: Simple and complete React DOM testing utilities that encourage good
+    testing practices
+  package_url: https://www.npmjs.com/@testing-library/react
+  version: 13.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16549/default_d522554c6a41cb28d922d6d3ad32ad4afa0e3bb5.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: body-parser
+  description: Node.js body parsing middleware
+  package_url: https://www.npmjs.com/body-parser
+  version: 1.20.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15906/default_7c39a83d4acd952df89b1ebfdb94c8646324fbf1.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 00:11:37.000000000 Z
+- name: cors
+  description: Node.js CORS middleware
+  package_url: https://www.npmjs.com/cors
+  version: 2.8.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16165/default_41f04716a804e853d5c38a5b81ee0ea8a842ad82.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/server/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: express
+  description: Fast, unopinionated, minimalist web framework
+  package_url: https://www.npmjs.com/express
+  version: 4.18.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15818/default_db4a7791d2f1174547374b9b587bc10fec088a5a.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: mysql2
+  description: Fast mysql driver
+  package_url: https://www.npmjs.com/mysql2
+  version: 2.3.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16671/default_4b738bf1758d38dddd276589bbea47fca5a990df.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/server/package-lock.json
+  detection_source: server/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-09 08:01:19.000000000 Z
+- name: object-hash
+  description: Generate hashes from javascript objects in node and the browser
+  package_url: https://www.npmjs.com/object-hash
+  version: 3.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16940/default_ebf16e0c8af5e95030933d9e01479224b6665289.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: react-dom
+  description: React package for working with the DOM
+  package_url: https://www.npmjs.com/react-dom
+  version: 18.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15808/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: react-router-dom
+  description: DOM bindings for React Router
+  package_url: https://www.npmjs.com/react-router-dom
+  version: 6.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16025/default_e25d1fbb04a118c79fb444294461417342bd03bf.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: react-scripts
+  description: Configuration and scripts for Create React App
+  package_url: https://www.npmjs.com/react-scripts
+  version: 5.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15985/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 01:28:39.000000000 Z
+- name: rxjs-compat
+  description: '&lt;img src="doc/asset/Rx_Logo_S.png" alt="RxJS Logo" width="86" height="86"&gt;
+    RxJS: Reactive Extensions For JavaScript =================='
+  package_url: https://www.npmjs.com/rxjs-compat
+  version: 6.6.7
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16746/default_6e51a44775c61dcb2888547ad406a2f0cf2c344e.png
+  detection_source_url: https://github.com/rgunindi/reactemployeeproject/blob/master/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-06-10 13:12:19.000000000 Z
